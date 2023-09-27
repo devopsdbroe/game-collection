@@ -21,9 +21,14 @@ const Game = () => {
 	};
 
 	const winner = calculateWinner(squares);
-	const status = winner
-		? `Winner: ${winner}`
-		: `Next player: ${isXNext ? "X" : "O"}`;
+	let status;
+	if (winner) {
+		status = `Winner: ${winner}`;
+	} else if (squares.every((square) => square)) {
+		status = "It's a tie!";
+	} else {
+		status = `Next player: ${isXNext ? "X" : "O"}`;
+	}
 
 	return (
 		<div>
