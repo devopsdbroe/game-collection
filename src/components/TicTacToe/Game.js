@@ -15,6 +15,11 @@ const Game = () => {
 		setIsXNext(!isXNext);
 	};
 
+	const handleReset = () => {
+		setSquares(Array(9).fill(null));
+		setIsXNext(true);
+	};
+
 	const winner = calculateWinner(squares);
 	const status = winner
 		? `Winner: ${winner}`
@@ -25,6 +30,7 @@ const Game = () => {
 			<h1>Tic-Tac-Toe</h1>
 			<p>{status}</p>
 			<Board squares={squares} onClick={handleClick} />
+			<button onClick={handleReset}>Reset Board</button>
 		</div>
 	);
 };
