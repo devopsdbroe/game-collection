@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import CounterGame from "./components/CounterGame";
 import GuessingGame from "./components/GuessingGame";
+import Game from "./components/TicTacToe/Game";
 
 function App() {
 	return (
@@ -18,6 +19,9 @@ function App() {
 						<li>
 							<Link to='/guessing-game'>Guessing Game</Link>
 						</li>
+						<li>
+							<Link to='/tic-tac-toe'>Tic-Tac-Toe</Link>
+						</li>
 					</ul>
 				</nav>
 
@@ -25,6 +29,7 @@ function App() {
 					<Route path='/' exact Component={Home} />
 					<Route path='/counter-game' Component={CounterGame} />
 					<Route path='/guessing-game' Component={GuessingGame} />
+					<Route path='/tic-tac-toe' Component={Game} />
 				</Routes>
 			</div>
 		</Router>

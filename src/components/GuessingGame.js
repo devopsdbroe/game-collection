@@ -6,7 +6,7 @@ const GuessingGame = () => {
 	const correctNumber = 7;
 
 	const checkGuess = () => {
-		if (guess === correctNumber) setMessage("You are correct!");
+		if (+guess === correctNumber) setMessage("You are correct!");
 		else setMessage("Sorry, that's not correct. Please try again.");
 	};
 
