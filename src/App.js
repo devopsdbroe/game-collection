@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import CounterGame from "./components/CounterGame";
 import GuessingGame from "./components/GuessingGame";
 import Game from "./components/TicTacToe/Game";
+import ConnectFour from "./components/ConnectFour/ConnectFour";
 
 function App() {
 	return (
@@ -22,6 +23,9 @@ function App() {
 						<li>
 							<Link to='/tic-tac-toe'>Tic-Tac-Toe</Link>
 						</li>
+						<li>
+							<Link to='/connect-four'>Connect Four</Link>
+						</li>
 					</ul>
 				</nav>
 
@@ -30,6 +34,7 @@ function App() {
 					<Route path='/counter-game' Component={CounterGame} />
 					<Route path='/guessing-game' Component={GuessingGame} />
 					<Route path='/tic-tac-toe' Component={Game} />
+					<Route path='/connect-four' Component={ConnectFour} />
 				</Routes>
 			</div>
 		</Router>
