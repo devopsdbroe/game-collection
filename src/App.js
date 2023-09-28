@@ -1,42 +1,31 @@
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import CounterGame from "./components/CounterGame";
-import GuessingGame from "./components/GuessingGame";
-import Game from "./components/TicTacToe/Game";
-import ConnectFour from "./components/ConnectFour/ConnectFour";
+import games from "./data/gameData";
+import NotFoundComponent from "./components/NotFoundComponent";
 
 function App() {
 	return (
 		<Router>
-			<div>
+			<>
 				<nav>
 					<ul>
-						<li>
-							<Link to='/'>Home</Link>
-						</li>
-						<li>
-							<Link to='/counter-game'>Counter Game</Link>
-						</li>
-						<li>
-							<Link to='/guessing-game'>Guessing Game</Link>
-						</li>
-						<li>
-							<Link to='/tic-tac-toe'>Tic-Tac-Toe</Link>
-						</li>
-						<li>
-							<Link to='/connect-four'>Connect Four</Link>
-						</li>
+						{games.map((game) => (
+							<li key={game.path}>
+								<Link to={game.path}>{game.name}</Link>
+							</li>
+						))}
 					</ul>
 				</nav>
-
 				<Routes>
-					<Route path='/' exact Component={Home} />
-					<Route path='/counter-game' Component={CounterGame} />
-					<Route path='/guessing-game' Component={GuessingGame} />
-					<Route path='/tic-tac-toe' Component={Game} />
-					<Route path='/connect-four' Component={ConnectFour} />
+					{games.map((game) => (
+						<Route
+							key={game.path}
+							path={game.path}
+							element={<game.component />}
+						/>
+					))}
+					<Route path='*' element={<NotFoundComponent />} />
 				</Routes>
-			</div>
+			</>
 		</Router>
 	);
 }
